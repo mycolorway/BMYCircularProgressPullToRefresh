@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F04F23F51929354400A01F63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F23F41929354400A01F63 /* Foundation.framework */; };
+		F04F23F71929354400A01F63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F23F61929354400A01F63 /* CoreGraphics.framework */; };
+		F04F23F91929354400A01F63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F23F81929354400A01F63 /* UIKit.framework */; };
+		F04F24141929354500A01F63 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F24131929354500A01F63 /* XCTest.framework */; };
+		F04F24151929354500A01F63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F23F41929354400A01F63 /* Foundation.framework */; };
+		F04F24161929354500A01F63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F23F81929354400A01F63 /* UIKit.framework */; };
+		F04F241E1929354500A01F63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F04F241C1929354500A01F63 /* InfoPlist.strings */; };
+		F09D7050194F2AC0006D9805 /* BMYCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D7049194F2AC0006D9805 /* BMYCircularProgressView.m */; };
+		F09D7051194F2AC0006D9805 /* BMYPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D704D194F2AC0006D9805 /* BMYPullToRefreshView.m */; };
+		F09D7052194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D704F194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.m */; };
+		F09D7057194F2AE3006D9805 /* BMYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D7054194F2AE3006D9805 /* BMYAppDelegate.m */; };
+		F09D7058194F2AE3006D9805 /* BMYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D7056194F2AE3006D9805 /* BMYViewController.m */; };
+		F09D705A194F2B02006D9805 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09D7059194F2B02006D9805 /* Images.xcassets */; };
+		F09D705F194F2B29006D9805 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F09D705D194F2B29006D9805 /* main.m */; };
+		F09D7062194F2B48006D9805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F09D7060194F2B48006D9805 /* InfoPlist.strings */; };
+		F09D7065194F2B4D006D9805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09D7063194F2B4D006D9805 /* Main.storyboard */; };
+		F09D706D194F2BBA006D9805 /* bicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F09D7067194F2BBA006D9805 /* bicon.png */; };
+		F09D706E194F2BBA006D9805 /* bicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F09D7068194F2BBA006D9805 /* bicon@2x.png */; };
+		F09D706F194F2BBA006D9805 /* dark_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = F09D7069194F2BBA006D9805 /* dark_circle.png */; };
+		F09D7070194F2BBA006D9805 /* dark_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F09D706A194F2BBA006D9805 /* dark_circle@2x.png */; };
+		F09D7071194F2BBA006D9805 /* light_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = F09D706B194F2BBA006D9805 /* light_circle.png */; };
+		F09D7072194F2BBA006D9805 /* light_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F09D706C194F2BBA006D9805 /* light_circle@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F04F24171929354500A01F63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F04F23E91929354400A01F63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F04F23F01929354400A01F63;
+			remoteInfo = BMYPullToRefreshDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F04F23F11929354400A01F63 /* BMYCircularProgressPullToRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMYCircularProgressPullToRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F04F23F41929354400A01F63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F04F23F61929354400A01F63 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F04F23F81929354400A01F63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F04F24121929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMYCircularProgressPullToRefreshDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F04F24131929354500A01F63 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F04F241B1929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMYCircularProgressPullToRefreshDemoTests-Info.plist"; sourceTree = "<group>"; };
+		F04F241D1929354500A01F63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F04F2450192951BF00A01F63 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		F09D7046194F2AC0006D9805 /* BMYCircularProgressPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMYCircularProgressPullToRefresh.h; sourceTree = "<group>"; };
+		F09D7048194F2AC0006D9805 /* BMYCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMYCircularProgressView.h; sourceTree = "<group>"; };
+		F09D7049194F2AC0006D9805 /* BMYCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMYCircularProgressView.m; sourceTree = "<group>"; };
+		F09D704A194F2AC0006D9805 /* BMYProgressViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMYProgressViewProtocol.h; sourceTree = "<group>"; };
+		F09D704C194F2AC0006D9805 /* BMYPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMYPullToRefreshView.h; sourceTree = "<group>"; };
+		F09D704D194F2AC0006D9805 /* BMYPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMYPullToRefreshView.m; sourceTree = "<group>"; };
+		F09D704E194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+BMYPullToRefresh.h"; sourceTree = "<group>"; };
+		F09D704F194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+BMYPullToRefresh.m"; sourceTree = "<group>"; };
+		F09D7053194F2AE3006D9805 /* BMYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMYAppDelegate.h; path = BMYCircularProgressPullToRefreshDemo/BMYAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		F09D7054194F2AE3006D9805 /* BMYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMYAppDelegate.m; path = BMYCircularProgressPullToRefreshDemo/BMYAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		F09D7055194F2AE3006D9805 /* BMYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMYViewController.h; path = BMYCircularProgressPullToRefreshDemo/BMYViewController.h; sourceTree = SOURCE_ROOT; };
+		F09D7056194F2AE3006D9805 /* BMYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMYViewController.m; path = BMYCircularProgressPullToRefreshDemo/BMYViewController.m; sourceTree = SOURCE_ROOT; };
+		F09D7059194F2B02006D9805 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BMYCircularProgressPullToRefreshDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		F09D705B194F2B29006D9805 /* BMYCircularProgressPullToRefreshDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BMYCircularProgressPullToRefreshDemo-Info.plist"; path = "BMYCircularProgressPullToRefreshDemo/BMYCircularProgressPullToRefreshDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F09D705C194F2B29006D9805 /* BMYCircularProgressPullToRefreshDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BMYCircularProgressPullToRefreshDemo-Prefix.pch"; path = "BMYCircularProgressPullToRefreshDemo/BMYCircularProgressPullToRefreshDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		F09D705D194F2B29006D9805 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BMYCircularProgressPullToRefreshDemo/main.m; sourceTree = SOURCE_ROOT; };
+		F09D7061194F2B48006D9805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = BMYCircularProgressPullToRefreshDemo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		F09D7064194F2B4D006D9805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BMYCircularProgressPullToRefreshDemo/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		F09D7067194F2BBA006D9805 /* bicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bicon.png; sourceTree = "<group>"; };
+		F09D7068194F2BBA006D9805 /* bicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bicon@2x.png"; sourceTree = "<group>"; };
+		F09D7069194F2BBA006D9805 /* dark_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark_circle.png; sourceTree = "<group>"; };
+		F09D706A194F2BBA006D9805 /* dark_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark_circle@2x.png"; sourceTree = "<group>"; };
+		F09D706B194F2BBA006D9805 /* light_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_circle.png; sourceTree = "<group>"; };
+		F09D706C194F2BBA006D9805 /* light_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light_circle@2x.png"; sourceTree = "<group>"; };
+		F09D7073194F2C49006D9805 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F04F23EE1929354400A01F63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F04F23F71929354400A01F63 /* CoreGraphics.framework in Frameworks */,
+				F04F23F91929354400A01F63 /* UIKit.framework in Frameworks */,
+				F04F23F51929354400A01F63 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F04F240F1929354500A01F63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F04F24141929354500A01F63 /* XCTest.framework in Frameworks */,
+				F04F24161929354500A01F63 /* UIKit.framework in Frameworks */,
+				F04F24151929354500A01F63 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F04F23E81929354400A01F63 = {
+			isa = PBXGroup;
+			children = (
+				F09D7073194F2C49006D9805 /* LICENSE.md */,
+				F04F2450192951BF00A01F63 /* README.md */,
+				F04F23FA1929354400A01F63 /* BMYCircularProgressPullToRefreshDemo */,
+				F04F24191929354500A01F63 /* BMYPullToRefreshDemoTests */,
+				F04F23F31929354400A01F63 /* Frameworks */,
+				F04F23F21929354400A01F63 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F04F23F21929354400A01F63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F04F23F11929354400A01F63 /* BMYCircularProgressPullToRefreshDemo.app */,
+				F04F24121929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F04F23F31929354400A01F63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F04F23F41929354400A01F63 /* Foundation.framework */,
+				F04F23F61929354400A01F63 /* CoreGraphics.framework */,
+				F04F23F81929354400A01F63 /* UIKit.framework */,
+				F04F24131929354500A01F63 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F04F23FA1929354400A01F63 /* BMYCircularProgressPullToRefreshDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F09D7045194F2AC0006D9805 /* BMYCircularProgressPullToRefresh */,
+				F09D7066194F2BBA006D9805 /* images */,
+				F09D7053194F2AE3006D9805 /* BMYAppDelegate.h */,
+				F09D7054194F2AE3006D9805 /* BMYAppDelegate.m */,
+				F09D7055194F2AE3006D9805 /* BMYViewController.h */,
+				F09D7056194F2AE3006D9805 /* BMYViewController.m */,
+				F09D7059194F2B02006D9805 /* Images.xcassets */,
+				F09D7063194F2B4D006D9805 /* Main.storyboard */,
+				F04F23FB1929354500A01F63 /* Supporting Files */,
+			);
+			name = BMYCircularProgressPullToRefreshDemo;
+			path = BMYPullToRefreshDemo;
+			sourceTree = "<group>";
+		};
+		F04F23FB1929354500A01F63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F09D705B194F2B29006D9805 /* BMYCircularProgressPullToRefreshDemo-Info.plist */,
+				F09D705C194F2B29006D9805 /* BMYCircularProgressPullToRefreshDemo-Prefix.pch */,
+				F09D705D194F2B29006D9805 /* main.m */,
+				F09D7060194F2B48006D9805 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F04F24191929354500A01F63 /* BMYPullToRefreshDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F04F241A1929354500A01F63 /* Supporting Files */,
+			);
+			path = BMYPullToRefreshDemoTests;
+			sourceTree = "<group>";
+		};
+		F04F241A1929354500A01F63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F04F241B1929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests-Info.plist */,
+				F04F241C1929354500A01F63 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F09D7045194F2AC0006D9805 /* BMYCircularProgressPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F09D7047194F2AC0006D9805 /* BMYCircularProgressView */,
+				F09D704B194F2AC0006D9805 /* BMYPullToRefreshView */,
+				F09D7046194F2AC0006D9805 /* BMYCircularProgressPullToRefresh.h */,
+				F09D704A194F2AC0006D9805 /* BMYProgressViewProtocol.h */,
+			);
+			path = BMYCircularProgressPullToRefresh;
+			sourceTree = SOURCE_ROOT;
+		};
+		F09D7047194F2AC0006D9805 /* BMYCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				F09D7048194F2AC0006D9805 /* BMYCircularProgressView.h */,
+				F09D7049194F2AC0006D9805 /* BMYCircularProgressView.m */,
+			);
+			path = BMYCircularProgressView;
+			sourceTree = "<group>";
+		};
+		F09D704B194F2AC0006D9805 /* BMYPullToRefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				F09D704C194F2AC0006D9805 /* BMYPullToRefreshView.h */,
+				F09D704D194F2AC0006D9805 /* BMYPullToRefreshView.m */,
+				F09D704E194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.h */,
+				F09D704F194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.m */,
+			);
+			path = BMYPullToRefreshView;
+			sourceTree = "<group>";
+		};
+		F09D7066194F2BBA006D9805 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F09D7067194F2BBA006D9805 /* bicon.png */,
+				F09D7068194F2BBA006D9805 /* bicon@2x.png */,
+				F09D7069194F2BBA006D9805 /* dark_circle.png */,
+				F09D706A194F2BBA006D9805 /* dark_circle@2x.png */,
+				F09D706B194F2BBA006D9805 /* light_circle.png */,
+				F09D706C194F2BBA006D9805 /* light_circle@2x.png */,
+			);
+			name = images;
+			path = BMYCircularProgressPullToRefreshDemo/images;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F04F23F01929354400A01F63 /* BMYCircularProgressPullToRefreshDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F04F24231929354500A01F63 /* Build configuration list for PBXNativeTarget "BMYCircularProgressPullToRefreshDemo" */;
+			buildPhases = (
+				F04F23ED1929354400A01F63 /* Sources */,
+				F04F23EE1929354400A01F63 /* Frameworks */,
+				F04F23EF1929354400A01F63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BMYCircularProgressPullToRefreshDemo;
+			productName = BMYPullToRefreshDemo;
+			productReference = F04F23F11929354400A01F63 /* BMYCircularProgressPullToRefreshDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F04F24111929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F04F24261929354500A01F63 /* Build configuration list for PBXNativeTarget "BMYCircularProgressPullToRefreshDemoTests" */;
+			buildPhases = (
+				F04F240E1929354500A01F63 /* Sources */,
+				F04F240F1929354500A01F63 /* Frameworks */,
+				F04F24101929354500A01F63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F04F24181929354500A01F63 /* PBXTargetDependency */,
+			);
+			name = BMYCircularProgressPullToRefreshDemoTests;
+			productName = BMYPullToRefreshDemoTests;
+			productReference = F04F24121929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F04F23E91929354400A01F63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BMY;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = zeebox;
+				TargetAttributes = {
+					F04F24111929354500A01F63 = {
+						TestTargetID = F04F23F01929354400A01F63;
+					};
+				};
+			};
+			buildConfigurationList = F04F23EC1929354400A01F63 /* Build configuration list for PBXProject "BMYCircularProgressPullToRefreshDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F04F23E81929354400A01F63;
+			productRefGroup = F04F23F21929354400A01F63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F04F23F01929354400A01F63 /* BMYCircularProgressPullToRefreshDemo */,
+				F04F24111929354500A01F63 /* BMYCircularProgressPullToRefreshDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F04F23EF1929354400A01F63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F09D7070194F2BBA006D9805 /* dark_circle@2x.png in Resources */,
+				F09D706E194F2BBA006D9805 /* bicon@2x.png in Resources */,
+				F09D7065194F2B4D006D9805 /* Main.storyboard in Resources */,
+				F09D705A194F2B02006D9805 /* Images.xcassets in Resources */,
+				F09D7072194F2BBA006D9805 /* light_circle@2x.png in Resources */,
+				F09D7071194F2BBA006D9805 /* light_circle.png in Resources */,
+				F09D706F194F2BBA006D9805 /* dark_circle.png in Resources */,
+				F09D7062194F2B48006D9805 /* InfoPlist.strings in Resources */,
+				F09D706D194F2BBA006D9805 /* bicon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F04F24101929354500A01F63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F04F241E1929354500A01F63 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F04F23ED1929354400A01F63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F09D7050194F2AC0006D9805 /* BMYCircularProgressView.m in Sources */,
+				F09D7057194F2AE3006D9805 /* BMYAppDelegate.m in Sources */,
+				F09D7058194F2AE3006D9805 /* BMYViewController.m in Sources */,
+				F09D7052194F2AC0006D9805 /* UIScrollView+BMYPullToRefresh.m in Sources */,
+				F09D705F194F2B29006D9805 /* main.m in Sources */,
+				F09D7051194F2AC0006D9805 /* BMYPullToRefreshView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F04F240E1929354500A01F63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F04F24181929354500A01F63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F04F23F01929354400A01F63 /* BMYCircularProgressPullToRefreshDemo */;
+			targetProxy = F04F24171929354500A01F63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F04F241C1929354500A01F63 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F04F241D1929354500A01F63 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F09D7060194F2B48006D9805 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F09D7061194F2B48006D9805 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F09D7063194F2B4D006D9805 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F09D7064194F2B4D006D9805 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F04F24211929354500A01F63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F04F24221929354500A01F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F04F24241929354500A01F63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMYCircularProgressPullToRefreshDemo/BMYCircularProgressPullToRefreshDemo-Prefix.pch";
+				INFOPLIST_FILE = "BMYCircularProgressPullToRefreshDemo/BMYCircularProgressPullToRefreshDemo-Info.plist";
+				PRODUCT_NAME = BMYCircularProgressPullToRefreshDemo;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F04F24251929354500A01F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMYCircularProgressPullToRefreshDemo/BMYCircularProgressPullToRefreshDemo-Prefix.pch";
+				INFOPLIST_FILE = "BMYCircularProgressPullToRefreshDemo/BMYCircularProgressPullToRefreshDemo-Info.plist";
+				PRODUCT_NAME = BMYCircularProgressPullToRefreshDemo;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F04F24271929354500A01F63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BMYCircularProgressPullToRefreshDemo.app/BMYCircularProgressPullToRefreshDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMYCircularProgressPullToRefreshDemo/BMYPullToRefreshDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BMYCircularProgressPullToRefreshDemoTests/BMYCircularProgressPullToRefreshDemoTests-Info.plist";
+				PRODUCT_NAME = BMYCircularProgressPullToRefreshDemoTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F04F24281929354500A01F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BMYCircularProgressPullToRefreshDemo.app/BMYCircularProgressPullToRefreshDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMYCircularProgressPullToRefreshDemo/BMYPullToRefreshDemo-Prefix.pch";
+				INFOPLIST_FILE = "BMYCircularProgressPullToRefreshDemoTests/BMYCircularProgressPullToRefreshDemoTests-Info.plist";
+				PRODUCT_NAME = BMYCircularProgressPullToRefreshDemoTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F04F23EC1929354400A01F63 /* Build configuration list for PBXProject "BMYCircularProgressPullToRefreshDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F04F24211929354500A01F63 /* Debug */,
+				F04F24221929354500A01F63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F04F24231929354500A01F63 /* Build configuration list for PBXNativeTarget "BMYCircularProgressPullToRefreshDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F04F24241929354500A01F63 /* Debug */,
+				F04F24251929354500A01F63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F04F24261929354500A01F63 /* Build configuration list for PBXNativeTarget "BMYCircularProgressPullToRefreshDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F04F24271929354500A01F63 /* Debug */,
+				F04F24281929354500A01F63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F04F23E91929354400A01F63 /* Project object */;
+}
