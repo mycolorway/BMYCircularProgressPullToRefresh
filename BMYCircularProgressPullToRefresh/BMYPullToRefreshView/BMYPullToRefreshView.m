@@ -20,14 +20,20 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 
 @property (nonatomic, strong) UIView<BMYProgressViewProtocol> *progressView;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, assign) UIEdgeInsets externalContentInset;
+@property (nonatomic, assign, getter = isUpdatingScrollViewContentInset) BOOL updatingScrollViewContentInset;
+
+- (void)_resetFrame;
 
 @end
 
 @implementation BMYPullToRefreshView
 
-- (instancetype)initWithFrame:(CGRect)frame scrollView:(UIScrollView *)scrollView {
+- (instancetype)initWithHeight:(CGFloat)height scrollView:(UIScrollView *)scrollView {
+    CGRect frame = CGRectMake(0.0f, 0.0f, 0.0f, height);
     if (self = [super initWithFrame:frame]) {
         _scrollView = scrollView;
+        _externalContentInset = scrollView.contentInset;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _state = BMYPullToRefreshStateStopped;
         _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -35,6 +41,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         [self setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
         [self setActivityIndicatorViewColor:[UIColor lightGrayColor]];
         [self addSubview:_activityIndicatorView];
+        [self _resetFrame];
     }
     
     return self;
@@ -62,6 +69,8 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 - (void)stopAnimating {
     if (_state != BMYPullToRefreshStateStopped) {
         self.state = BMYPullToRefreshStateStopped;
+        CGPoint originalContentOffset = CGPointMake(-_externalContentInset.left, -_externalContentInset.top);
+        [self.scrollView setContentOffset:originalContentOffset animated:YES];
     }
 }
 
@@ -85,7 +94,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         }
             
         case BMYPullToRefreshStateLoading: {
-            [self _setScrollViewContentInsetForLoading];
+            [self _setScrollViewContentInsetForLoadingAnimated:YES];
             
             if (previousState == BMYPullToRefreshStateTriggered && _pullToRefreshActionHandler) {
                 [UIView animateWithDuration:kPullToRefreshResetContentInsetAnimationTime
@@ -121,23 +130,24 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
     }
     else if ([keyPath isEqualToString:@"contentSize"]) {
         [self layoutSubviews];
-        self.frame = CGRectMake(0, -CGRectGetHeight(self.bounds), CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+        [self _resetFrame];
     }
     else if ([keyPath isEqualToString:@"frame"]) {
         [self layoutSubviews];
+    }
+    else if ([keyPath isEqualToString:@"contentInset"]) {
+        if (!_updatingScrollViewContentInset) {
+            self.externalContentInset = [[change valueForKey:NSKeyValueChangeNewKey] UIEdgeInsetsValue];
+            [self _resetFrame];
+        }
     }
 }
 
 - (void)scrollViewDidScroll:(CGPoint)contentOffset {
     if (_state == BMYPullToRefreshStateLoading) {
-        CGFloat offset;
-        UIEdgeInsets contentInset;
-        offset = MAX(-_scrollView.contentOffset.y, 0);
-        offset = MIN(offset, CGRectGetHeight(self.bounds));
-        contentInset = self.scrollView.contentInset;
-        self.scrollView.contentInset = UIEdgeInsetsMake(offset, contentInset.left, contentInset.bottom, contentInset.right);
+        [self _setScrollViewContentInsetForLoadingAnimated:NO];
     } else {
-        CGFloat dragging = -contentOffset.y;
+        CGFloat dragging = -contentOffset.y - _externalContentInset.top;
         if (!self.scrollView.isDragging && _state == BMYPullToRefreshStateTriggered) {
             self.state = BMYPullToRefreshStateLoading;
         }
@@ -175,13 +185,11 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 #pragma mark - Scroll View
 
 - (void)_resetScrollViewContentInset {
-    UIEdgeInsets currentInsets = _scrollView.contentInset;
-    currentInsets.top = 0;
     [UIView animateWithDuration:kPullToRefreshResetContentInsetAnimationTime
                           delay:0
                         options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState)
                      animations:^{
-                         self.scrollView.contentInset = currentInsets;
+                         [self _setScrollViewContentInset:_externalContentInset];
                      }
                      completion:^(BOOL finished) {
                          if (_progressView) {
@@ -192,17 +200,40 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
                      }];
 }
 
-- (void)_setScrollViewContentInsetForLoading {
-    CGFloat offset = MAX(-_scrollView.contentOffset.y, 0);
-    UIEdgeInsets currentInsets = self.scrollView.contentInset;
-    currentInsets.top = MIN(offset, CGRectGetHeight(self.bounds));
-    [UIView animateWithDuration:kPullToRefreshResetContentInsetAnimationTime
-                          delay:0
-                        options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState)
-                     animations:^{
-                         self.scrollView.contentInset = currentInsets;
-                     }
-                     completion:nil];
+- (void)_setScrollViewContentInsetForLoadingAnimated:(BOOL)animated {
+    UIEdgeInsets loadingInset = _externalContentInset;
+    loadingInset.top += CGRectGetHeight(self.bounds);
+    void (^updateBlock)(void) = ^{
+        [self _setScrollViewContentInset:loadingInset];
+    };
+    if (animated) {
+        [UIView animateWithDuration:kPullToRefreshResetContentInsetAnimationTime
+                              delay:0
+                            options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState)
+                         animations:updateBlock
+                         completion:nil];
+    }
+    else {
+        updateBlock();
+    }
+}
+
+- (void)_setScrollViewContentInset:(UIEdgeInsets)contentInset {
+    BOOL alreadyUpdating = _updatingScrollViewContentInset; // Check to prevent errors from recursive calls.
+    if (!alreadyUpdating) {
+        self.updatingScrollViewContentInset = YES;
+    }
+    self.scrollView.contentInset = contentInset;
+    if (!alreadyUpdating) {
+        self.updatingScrollViewContentInset = NO;
+    }
+}
+
+#pragma mark - Utilities
+
+- (void)_resetFrame {
+    CGFloat height = CGRectGetHeight(self.bounds);
+    self.frame = CGRectMake(-_externalContentInset.left, -height - _externalContentInset.top, CGRectGetWidth(_scrollView.bounds) + _externalContentInset.left + _externalContentInset.right, height);
 }
 
 @end

@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, BMYPullToRefreshState) {
 @property (nonatomic, strong, readwrite) UIColor *activityIndicatorViewColor;
 @property (nonatomic, assign, readwrite) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
 
-- (instancetype)initWithFrame:(CGRect)frame scrollView:(UIScrollView *)scrollView;
+- (instancetype)initWithHeight:(CGFloat)height scrollView:(UIScrollView *)scrollView;
 
 - (void)setProgressView:(UIView<BMYProgressViewProtocol> *)view;
 
