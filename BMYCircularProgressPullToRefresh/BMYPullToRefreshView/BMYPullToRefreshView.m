@@ -250,7 +250,10 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 
 - (void)_resetFrame {
     CGFloat height = CGRectGetHeight(self.bounds);
-    self.frame = CGRectMake(-self.externalContentInset.left, -height - self.externalContentInset.top, CGRectGetWidth(_scrollView.bounds) + self.externalContentInset.left + self.externalContentInset.right, height);
+    self.frame = CGRectMake(-self.externalContentInset.left,
+                            -height - self.externalContentInset.top,
+                            CGRectGetWidth(_scrollView.bounds),
+                            height);
 }
 
 @end
