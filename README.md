@@ -27,7 +27,7 @@ BMYCircularProgressView *progressView = [[BMYCircularProgressView alloc] initWit
                                                                        backCircleImage:backCircleImage
                                                                       frontCircleImage:frontCircleImage];
    
-[self.scrollView addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView){
+[self.scrollView setPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView){
 	// reload logic, call the following line when work is done 
     [pullToRefreshView stopAnimating];
 }];

@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong, readonly) BMYPullToRefreshView *pullToRefreshView;
 
-- (void)addPullToRefreshWithHeight:(CGFloat)height
+- (void)setPullToRefreshWithHeight:(CGFloat)height
                      actionHandler:(void (^)(BMYPullToRefreshView *pullToRefreshView))actionHandler;
 
 - (void)tearDownPullToRefresh;

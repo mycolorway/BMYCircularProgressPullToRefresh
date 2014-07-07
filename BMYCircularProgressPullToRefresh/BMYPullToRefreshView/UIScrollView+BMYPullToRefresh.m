@@ -19,7 +19,7 @@ static char UIScrollViewPullToRefreshView;
 
 #pragma mark - Public Methods
 
-- (void)addPullToRefreshWithHeight:(CGFloat)height
+- (void)setPullToRefreshWithHeight:(CGFloat)height
                      actionHandler:(void (^)(BMYPullToRefreshView *pullToRefreshView))actionHandler {
     [self tearDownPullToRefresh];
     [self.pullToRefreshView removeFromSuperview];

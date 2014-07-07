@@ -41,7 +41,7 @@ UITableViewDataSource>
                                                                           frontCircleImage:frontCircleImage];
     __weak typeof(self) weakSelf = self;
     
-    [self.tableView addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
+    [self.tableView setPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
         int64_t delayInSeconds = 1;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -64,7 +64,7 @@ UITableViewDataSource>
     __weak typeof(self) weakSelf = self;
     
     self.tableViewWithContentInset1.contentInset = UIEdgeInsetsMake(100.0f, 0.0f, 0.0f, 0.0f);
-    [self.tableViewWithContentInset1 addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
+    [self.tableViewWithContentInset1 setPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
         int64_t delayInSeconds = 1;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -88,7 +88,7 @@ UITableViewDataSource>
     __weak typeof(self) weakSelf = self;
     
     self.tableViewWithContentInset2.contentInset = UIEdgeInsetsMake(100.0f, 0.0f, 0.0f, 0.0f);
-    [self.tableViewWithContentInset2 addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
+    [self.tableViewWithContentInset2 setPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
         int64_t delayInSeconds = 1;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
