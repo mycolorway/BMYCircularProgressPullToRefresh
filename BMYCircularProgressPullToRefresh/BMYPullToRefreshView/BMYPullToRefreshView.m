@@ -29,7 +29,14 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 
 @implementation BMYPullToRefreshView
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [self initWithHeight:0.0f scrollView:nil];
+}
+
 - (instancetype)initWithHeight:(CGFloat)height scrollView:(UIScrollView *)scrollView {
+    NSParameterAssert(height > 0.0f);
+    NSParameterAssert(scrollView);
+    
     CGRect frame = CGRectMake(0.0f, 0.0f, 0.0f, height);
     if (self = [super initWithFrame:frame]) {
         _scrollView = scrollView;
