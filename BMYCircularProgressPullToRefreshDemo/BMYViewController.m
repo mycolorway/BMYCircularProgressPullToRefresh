@@ -15,6 +15,8 @@ UITableViewDelegate,
 UITableViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UITableView *tableViewWithContentInset1;
+@property (nonatomic, strong) IBOutlet UITableView *tableViewWithContentInset2;
 
 @end
 
@@ -23,15 +25,20 @@ UITableViewDataSource>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self _setupTableView];
+    [self _setupTableViewWithContentInset1];
+    [self _setupTableViewWithContentInset2];
+}
+
+- (void)_setupTableView {
     UIImage *logoImage = [UIImage imageNamed:@"bicon.png"];
     UIImage *backCircleImage = [UIImage imageNamed:@"light_circle.png"];
     UIImage *frontCircleImage = [UIImage imageNamed:@"dark_circle.png"];
-    
-    BMYCircularProgressView *progressView = [[BMYCircularProgressView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)
+
+    BMYCircularProgressView *progressView1 = [[BMYCircularProgressView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)
                                                                                       logo:logoImage
                                                                            backCircleImage:backCircleImage
                                                                           frontCircleImage:frontCircleImage];
-    
     __weak typeof(self) weakSelf = self;
     
     [self.tableView addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
@@ -42,11 +49,61 @@ UITableViewDataSource>
         });
     }];
     
-    [self.tableView.pullToRefreshView setProgressView:progressView];
+    [self.tableView.pullToRefreshView setProgressView:progressView1];
+}
+
+- (void)_setupTableViewWithContentInset1 {
+    UIImage *logoImage = [UIImage imageNamed:@"bicon.png"];
+    UIImage *backCircleImage = [UIImage imageNamed:@"light_circle.png"];
+    UIImage *frontCircleImage = [UIImage imageNamed:@"dark_circle.png"];
+    
+    BMYCircularProgressView *progressView2 = [[BMYCircularProgressView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)
+                                                                                       logo:logoImage
+                                                                            backCircleImage:backCircleImage
+                                                                           frontCircleImage:frontCircleImage];
+    __weak typeof(self) weakSelf = self;
+    
+    self.tableViewWithContentInset1.contentInset = UIEdgeInsetsMake(100.0f, 0.0f, 0.0f, 0.0f);
+    [self.tableViewWithContentInset1 addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
+        int64_t delayInSeconds = 1;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf.tableViewWithContentInset1.pullToRefreshView stopAnimating];
+        });
+    }];
+    
+    [self.tableViewWithContentInset1.pullToRefreshView setProgressView:progressView2];
+    self.tableViewWithContentInset1.pullToRefreshView.preserveContentInset = NO;
+}
+
+- (void)_setupTableViewWithContentInset2 {
+    UIImage *logoImage = [UIImage imageNamed:@"bicon.png"];
+    UIImage *backCircleImage = [UIImage imageNamed:@"light_circle.png"];
+    UIImage *frontCircleImage = [UIImage imageNamed:@"dark_circle.png"];
+    
+    BMYCircularProgressView *progressView3 = [[BMYCircularProgressView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)
+                                                                                       logo:logoImage
+                                                                            backCircleImage:backCircleImage
+                                                                           frontCircleImage:frontCircleImage];
+    __weak typeof(self) weakSelf = self;
+    
+    self.tableViewWithContentInset2.contentInset = UIEdgeInsetsMake(100.0f, 0.0f, 0.0f, 0.0f);
+    [self.tableViewWithContentInset2 addPullToRefreshWithHeight:60.0f actionHandler:^(BMYPullToRefreshView *pullToRefreshView) {
+        int64_t delayInSeconds = 1;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf.tableViewWithContentInset2.pullToRefreshView stopAnimating];
+        });
+    }];
+    
+    [self.tableViewWithContentInset2.pullToRefreshView setProgressView:progressView3];
+    self.tableViewWithContentInset2.pullToRefreshView.preserveContentInset = YES;
 }
 
 - (void)dealloc {
     [self.tableView tearDownPullToRefresh];
+    [self.tableViewWithContentInset1 tearDownPullToRefresh];
+    [self.tableViewWithContentInset2 tearDownPullToRefresh];
 }
 
 #pragma mark - UITableViewDataSource
@@ -61,9 +118,10 @@ UITableViewDataSource>
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.backgroundColor = [UIColor greenColor];
     }
     
-    cell.textLabel.text = NSLocalizedString(@"Pull me to refresh!", nil);
+    cell.textLabel.text = NSLocalizedString(@"Pull!", nil);
     return cell;
 }
 
