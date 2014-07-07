@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, BMYPullToRefreshState) {
 @property (nonatomic, readwrite) BMYPullToRefreshState state;
 @property (nonatomic, strong, readwrite) UIColor *activityIndicatorViewColor;
 @property (nonatomic, assign, readwrite) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
+@property (nonatomic, assign) BOOL preserveContentInset;
 
 - (instancetype)initWithHeight:(CGFloat)height scrollView:(UIScrollView *)scrollView;
 

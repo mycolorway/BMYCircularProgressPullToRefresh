@@ -43,6 +43,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         _externalContentInset = scrollView.contentInset;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _state = BMYPullToRefreshStateStopped;
+        _preserveContentInset = NO;
         _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _activityIndicatorView.hidesWhenStopped = NO;
         [self setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
@@ -171,6 +172,15 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
     }
 }
 
+#pragma mark - Accessors
+
+- (UIEdgeInsets)externalContentInset {
+    if (_preserveContentInset) {
+        return _externalContentInset;
+    }
+    return UIEdgeInsetsZero;
+}
+
 #pragma mark - Accessors Pass Through
 
 - (UIColor *)activityIndicatorViewColor {
@@ -240,7 +250,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 
 - (void)_resetFrame {
     CGFloat height = CGRectGetHeight(self.bounds);
-    self.frame = CGRectMake(-_externalContentInset.left, -height - _externalContentInset.top, CGRectGetWidth(_scrollView.bounds) + _externalContentInset.left + _externalContentInset.right, height);
+    self.frame = CGRectMake(-self.externalContentInset.left, -height - self.externalContentInset.top, CGRectGetWidth(_scrollView.bounds) + self.externalContentInset.left + self.externalContentInset.right, height);
 }
 
 @end
