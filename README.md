@@ -8,6 +8,7 @@ This version of the pull to refresh feature can be used both on UITableViews and
 
 When dealing with a custom pull to refresh view, often the native UIRefreshControl is not ideal as it is not customizable.
 A common customization besides the pull to refresh, is to have a circular progress view with the logo of the app to show during the dragging.
+This version of the pull to refresh allows to preserve the contentInset on the scrollview.
 
 Try out the included demo project.
 
@@ -31,7 +32,8 @@ BMYCircularProgressView *progressView = [[BMYCircularProgressView alloc] initWit
 	// reload logic, call the following line when work is done 
     [pullToRefreshView stopAnimating];
 }];
-    
+
+[self.scrollView.pullToRefreshView setPreserveContentInset:YES];
 [self.scrollView.pullToRefreshView setProgressView:progressView];
 ```
 
