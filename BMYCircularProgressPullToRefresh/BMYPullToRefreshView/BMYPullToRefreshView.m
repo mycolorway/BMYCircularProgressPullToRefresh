@@ -57,7 +57,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 
 - (void)layoutSubviews {
     CGRect viewBounds = [_progressView bounds];
-    CGPoint origin = CGPointMake(roundf((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewBounds))/2), roundf(( CGRectGetHeight(self.bounds) - CGRectGetHeight(viewBounds))/2));
+    CGPoint origin = CGPointMake(roundf((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewBounds)) / 2), roundf(( CGRectGetHeight(self.bounds) - CGRectGetHeight(viewBounds)) / 2));
     [_progressView setFrame:CGRectMake(origin.x, origin.y, CGRectGetWidth(viewBounds), CGRectGetHeight(viewBounds))];
     [_activityIndicatorView setFrame:CGRectMake(origin.x, origin.y, CGRectGetWidth(viewBounds), CGRectGetHeight(viewBounds))];
 }
@@ -167,7 +167,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         }
         
         if (dragging > 0 && _state != BMYPullToRefreshStateLoading) {
-            [_progressView setProgress:(dragging * 1/kPullToRefreshDragToTrigger)];
+            [_progressView setProgress:(dragging * 1 / kPullToRefreshDragToTrigger)];
         }
     }
 }

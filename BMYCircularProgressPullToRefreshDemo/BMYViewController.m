@@ -72,8 +72,8 @@ UITableViewDataSource>
         });
     }];
     
+    [self.tableViewWithContentInset1.pullToRefreshView setPreserveContentInset:NO];
     [self.tableViewWithContentInset1.pullToRefreshView setProgressView:progressView2];
-    self.tableViewWithContentInset1.pullToRefreshView.preserveContentInset = NO;
 }
 
 - (void)_setupTableViewWithContentInset2 {
@@ -96,8 +96,8 @@ UITableViewDataSource>
         });
     }];
     
+    [self.tableViewWithContentInset2.pullToRefreshView setPreserveContentInset:YES];
     [self.tableViewWithContentInset2.pullToRefreshView setProgressView:progressView3];
-    self.tableViewWithContentInset2.pullToRefreshView.preserveContentInset = YES;
 }
 
 - (void)dealloc {
