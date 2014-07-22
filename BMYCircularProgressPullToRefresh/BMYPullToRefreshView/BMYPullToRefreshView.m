@@ -79,6 +79,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         self.state = BMYPullToRefreshStateStopped;
         CGPoint originalContentOffset = CGPointMake(-_externalContentInset.left, -_externalContentInset.top);
         [self.scrollView setContentOffset:originalContentOffset animated:YES];
+        [self.progressView setProgress:0.0f];
     }
 }
 

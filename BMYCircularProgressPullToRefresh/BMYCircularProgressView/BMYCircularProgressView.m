@@ -46,6 +46,8 @@
         _logoLayer.contents = (__bridge id)[logoImage CGImage];
         _backCircleLayer.contents = (__bridge id)[backCircleImage CGImage];
         _frontCircleLayer.contents = (__bridge id)[frontCircleImage CGImage];
+        _frontCircleLayer.mask = _pieLayer;
+        _logoLayer.opacity = 0.0f;
     }
     return self;
 }
