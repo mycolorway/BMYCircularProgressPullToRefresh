@@ -43,7 +43,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         _externalContentInset = scrollView.contentInset;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _state = BMYPullToRefreshStateStopped;
-        _preserveContentInset = NO;
+        _preserveContentInset = YES;
         _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _activityIndicatorView.hidesWhenStopped = NO;
         [self setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
@@ -146,7 +146,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
     }
     else if ([keyPath isEqualToString:@"contentInset"]) {
         if (!_updatingScrollViewContentInset) {
-            self.externalContentInset = [[change valueForKey:NSKeyValueChangeNewKey] UIEdgeInsetsValue];
+            _externalContentInset = [[change valueForKey:NSKeyValueChangeNewKey] UIEdgeInsetsValue];
             [self _resetFrame];
         }
     }
@@ -171,15 +171,6 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
             [_progressView setProgress:(dragging * 1 / kPullToRefreshDragToTrigger)];
         }
     }
-}
-
-#pragma mark - Accessors
-
-- (UIEdgeInsets)externalContentInset {
-    if (_preserveContentInset) {
-        return _externalContentInset;
-    }
-    return UIEdgeInsetsZero;
 }
 
 #pragma mark - Accessors Pass Through
@@ -251,10 +242,19 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 
 - (void)_resetFrame {
     CGFloat height = CGRectGetHeight(self.bounds);
-    self.frame = CGRectMake(-self.externalContentInset.left,
-                            -height - self.externalContentInset.top,
-                            CGRectGetWidth(_scrollView.bounds),
-                            height);
+    
+    if (_preserveContentInset) {
+        self.frame = CGRectMake(0.0f,
+                                -height -_externalContentInset.top,
+                                CGRectGetWidth(_scrollView.bounds),
+                                height);
+    }
+    else {
+        self.frame = CGRectMake(-_externalContentInset.left,
+                                -height,
+                                CGRectGetWidth(_scrollView.bounds),
+                                height);
+    }
 }
 
 @end
