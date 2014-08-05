@@ -10,7 +10,7 @@ When dealing with a custom pull to refresh view, often the native UIRefreshContr
 A common customization besides the pull to refresh, is to have a circular progress view with the logo of the app to show during the dragging.
 This version of the pull to refresh allows to preserve the contentInset on the scrollview.
 
-Try out the included demo project.
+Try out the included demo project or just run `pod try BMYCircularProgressPullToRefresh` to give it a try.
 
 Simple usage:
 
