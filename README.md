@@ -14,7 +14,12 @@ Try out the included demo project or just run `pod try BMYCircularProgressPullTo
 
 Simple usage:
 
-- copy all the classes in the `BMYCircularProgressPullToRefresh` folder into your project
+- copy all the classes in the `BMYCircularProgressPullToRefresh` folder into your project or install via CocoaPods adding the following line to your Podfile
+
+```
+pod "BMYCircularProgressPullToRefresh"
+```
+
 - import `BMYCircularProgressPullToRefresh.h` in your (view controller) class
 - add the pull to refresh feature as so (you probably want to do to in the `viewDidLoad` method):
 
@@ -41,7 +46,6 @@ BMYCircularProgressView *progressView = [[BMYCircularProgressView alloc] initWit
 - (void)dealloc {
     [self.scrollView tearDownPullToRefresh];
 }
-
 ```
 
 #Licensing
