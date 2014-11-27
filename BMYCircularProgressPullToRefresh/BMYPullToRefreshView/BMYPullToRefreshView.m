@@ -43,7 +43,7 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         _externalContentInset = scrollView.contentInset;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _state = BMYPullToRefreshStateStopped;
-        _preserveContentInset = YES;
+        _preserveContentInset = NO;
         _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _activityIndicatorView.hidesWhenStopped = NO;
         [self setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
