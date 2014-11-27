@@ -22,7 +22,6 @@ static char UIScrollViewPullToRefreshView;
 - (void)setPullToRefreshWithHeight:(CGFloat)height
                      actionHandler:(void (^)(BMYPullToRefreshView *pullToRefreshView))actionHandler {
     [self tearDownPullToRefresh];
-    [self.pullToRefreshView removeFromSuperview];
     BMYPullToRefreshView *view = [[BMYPullToRefreshView alloc] initWithHeight:height scrollView:self];
     [self addSubview:view];
     self.pullToRefreshView = view;
@@ -32,12 +31,14 @@ static char UIScrollViewPullToRefreshView;
 
 - (void)tearDownPullToRefresh {
     if (self.pullToRefreshView) {
-        self.pullToRefreshView.hidden = YES;
-        
+        [self.pullToRefreshView removeFromSuperview];
+
         [self removeObserver:self.pullToRefreshView forKeyPath:@"contentOffset"];
         [self removeObserver:self.pullToRefreshView forKeyPath:@"contentSize"];
         [self removeObserver:self.pullToRefreshView forKeyPath:@"frame"];
         [self removeObserver:self.pullToRefreshView forKeyPath:@"contentInset"];
+
+        self.pullToRefreshView = nil;
     }
 }
 
