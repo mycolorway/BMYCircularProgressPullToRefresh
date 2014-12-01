@@ -31,7 +31,7 @@ static char UIScrollViewPullToRefreshView;
 
 - (void)tearDownPullToRefresh {
     if (self.pullToRefreshView) {
-        [self.pullToRefreshView stopAnimating];
+        [self.pullToRefreshView stopAnimating:NO];
         [self.pullToRefreshView removeFromSuperview];
 
         [self removeObserver:self.pullToRefreshView forKeyPath:@"contentOffset"];

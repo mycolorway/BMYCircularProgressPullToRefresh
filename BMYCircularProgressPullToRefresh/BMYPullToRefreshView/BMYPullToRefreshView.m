@@ -75,10 +75,14 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
 }
 
 - (void)stopAnimating {
+    [self stopAnimating:YES];
+}
+
+- (void)stopAnimating:(BOOL)animated {
     if (_state != BMYPullToRefreshStateStopped) {
         self.state = BMYPullToRefreshStateStopped;
         CGPoint originalContentOffset = CGPointMake(-_externalContentInset.left, -_externalContentInset.top);
-        [self.scrollView setContentOffset:originalContentOffset animated:YES];
+        [self.scrollView setContentOffset:originalContentOffset animated:animated];
         [self.progressView setProgress:0.0f];
     }
 }
@@ -145,10 +149,10 @@ static CGFloat const kPullToRefreshDragToTrigger = 80;
         [self layoutSubviews];
     }
     else if ([keyPath isEqualToString:@"contentInset"]) {
-        if (!_updatingScrollViewContentInset) {
-            _externalContentInset = [[change valueForKey:NSKeyValueChangeNewKey] UIEdgeInsetsValue];
-            [self _resetFrame];
-        }
+//        if (!_updatingScrollViewContentInset) {
+//            _externalContentInset = [[change valueForKey:NSKeyValueChangeNewKey] UIEdgeInsetsValue];
+//            [self _resetFrame];
+//        }
     }
 }
 

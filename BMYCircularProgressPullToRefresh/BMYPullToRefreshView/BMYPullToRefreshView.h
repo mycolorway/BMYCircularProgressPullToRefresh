@@ -31,5 +31,6 @@ typedef NS_ENUM(NSUInteger, BMYPullToRefreshState) {
 
 - (void)startAnimating;
 - (void)stopAnimating;
+- (void)stopAnimating:(BOOL)animated;
 
 @end
